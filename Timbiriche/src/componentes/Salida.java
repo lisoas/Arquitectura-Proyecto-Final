@@ -1,5 +1,8 @@
 package componentes;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
@@ -10,7 +13,8 @@ public class Salida {
     
     private int port2;
     private Socket cliente;
-    private ObjectOutputStream flujo_de_salida;
+    private DataOutputStream flujo_de_salida;
+    private DataInputStream flujo_de_entrada;
     private String ip;
     private Object mensaje;
     
@@ -24,8 +28,10 @@ public class Salida {
     public void mensaje_Saliente(){
         try{
             cliente = new Socket(ip, port2);
-            flujo_de_salida = new ObjectOutputStream(cliente.getOutputStream());
-            flujo_de_salida.writeObject(mensaje);
+            flujo_de_entrada = new DataInputStream(cliente.getInputStream());
+            flujo_de_salida = new DataOutputStream(cliente.getOutputStream());
+            flujo_de_salida.writeUTF((String) mensaje);
+            flujo_de_entrada.readUTF();
             cliente.close();
         }
         catch(Exception ex){}

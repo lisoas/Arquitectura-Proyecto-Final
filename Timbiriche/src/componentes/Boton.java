@@ -8,9 +8,7 @@ import vista.Tablero;
  * de la maquina.
  */
 public class Boton extends JButton{
-    
-    Tablero v = new Tablero();
-    
+       
     public Boton(){}
     
     public Boton(boolean Cuadro){

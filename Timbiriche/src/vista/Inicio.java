@@ -229,10 +229,7 @@ public class Inicio extends javax.swing.JFrame implements StartVista{
                     String[] ip=this.TextIP.getText().split(".");
                     if(this.TextIP.getText().equalsIgnoreCase(""))
                         throw new ClassNotFoundException();
-                    for(int x=0;x<3;x++)
-                        for(int y=0;y<ip[x].length();y++)
-                            if(Character.isDigit(ip[x].charAt(y)))
-                                throw new Exception();
+                    
                 }
                 band=2;
                 Integer.parseInt(this.PortEntrada.getText());
@@ -281,7 +278,7 @@ public class Inicio extends javax.swing.JFrame implements StartVista{
 
     @Override
     public void crear(String nombre, String ip, int port1, int port2, String p){
-        Tablero Tablero=new Tablero(nombre, ip, port1, port2, p);
+        Tablero Tablero = new Tablero(nombre, ip, port1, port2, p);
         setVisible(false);
     }
     

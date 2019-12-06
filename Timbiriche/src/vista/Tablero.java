@@ -34,10 +34,6 @@ public class Tablero extends JFrame implements VistaMaquina, KeyListener, Action
         crearMaquina(nombre, ip, port1, port2, p);
         inicializar();
     }
-
-    public Tablero() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     public void inicializar(){
         setSize(805,600);
